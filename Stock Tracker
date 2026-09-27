@@ -1,3 +1,9 @@
+import pandas as pd
+URL = 'choose data source URL'
+tables = pd.read_html(URL)
+df = tables[0]
+print(df)
+
 pip install yfinance
 class StockTracker:
     def __init__(self, symbol):
@@ -10,7 +16,7 @@ class StockTracker:
 
     def save_price_to_file(self, filename="stock_log.txt"):
         price = self.get_current_price()
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+        timestamp = datetime.now().strftime("Y-m-d H:M")
         with open(filename, "a") as f:
             f.write(f"{timestamp}, {self.symbol}, {price}\n")
         print(f"Logged {self.symbol}: ${price}")
