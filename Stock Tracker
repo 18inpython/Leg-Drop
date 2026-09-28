@@ -1,9 +1,12 @@
+#Pull static table of tickers 
 import pandas as pd
 URL = 'choose data source URL'
 tables = pd.read_html(URL)
 df = tables[0]
 print(df)
 
+from datetime import datetime
+import time 
 pip install yfinance
 class StockTracker:
     def __init__(self, symbol):
@@ -30,3 +33,15 @@ class StockTracker:
         for symbol in symbols:
             tracker = StockTracker(symbol)
             tracker.save_price_to_file(filename)
+
+#Run a loop to get updated prices each minute
+Try:
+    while True:
+        track_multiple(["NVDA", "GOOGL", "MSFT"])
+        print("Gimme a minute, fool...")
+        time.sleep(60)
+
+#ctrl-c to stop 
+Except KeyboardInterrupt:
+        print("ALLLLLL Done!")
+    
